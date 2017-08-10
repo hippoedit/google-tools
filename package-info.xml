@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.hippoedit.com/xml/package-info" xmlns:smf="http://www.hippoedit.com/">
 	<id>F3901F15-9233-4131-BE76-4DF8DAC58DAF</id>
 	<name>Google Tools</name>	
-	<version>1.0.0.2</version>
+	<version>1.0.0.3</version>
 	<description>Google Tools for HippoEDIT</description>
 	<author>HippoEDIT.com</author>
 	<email>supportbox@hippoedit.com</email>
@@ -16,6 +16,7 @@
 		<readme type="inline">This will install Google Tools plugin for HippoEDIT.</readme>
 
 		<require-file name="google_tools.hejs" destination="%{plugins}%/google_tools.hejs" />
+		<require-file name="languages.js" destination="%{plugins}%/languages.js" />
 
 		<!-- Registration -->
 		<install-plugin path="%{plugins}%/google_tools.hejs"/>
@@ -31,6 +32,7 @@
 
 		<!-- Source files -->
 		<remove-file name="%{plugins}%/google_tools.hejs" />
+		<remove-file name="%{plugins}%/languages.hejs" />
 	</uninstall>
 
 </package-info>
