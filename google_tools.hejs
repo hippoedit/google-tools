@@ -87,6 +87,10 @@ function handleRequest(req) {
 	ActiveView.ShowQuickInfo(vHint);
 }
 
+function IsTextDocument() {
+	return ActiveDocument != null && (ActiveDocument.Type === undefined || ActiveDocument.Type === "HE::TEXTDOCUMENT");   
+}
+
 var vTranslateTip = new Command("GoogleTranslate.ShowTip", "Translate", "Show word translation in ToolTip", nIconTranslate);
 vTranslateTip.onExecute = function() {
 	var sel = ActiveView.Selection;
@@ -100,7 +104,7 @@ vTranslateTip.onExecute = function() {
 		sendRequest(createQueryString(textToTranslate), handleRequest);
 }
 vTranslateTip.onEnabled = function() {
-	return ActiveDocument != null && ActiveView != null && (!ActiveView.Selection.IsEmpty || !ActiveView.CurrentWord.IsEmpty);
+	return IsTextDocument() && (!ActiveView.Selection.IsEmpty || !ActiveView.CurrentWord.IsEmpty);
 }
 
 // register the command as global, to be able assign shortcuts to it
